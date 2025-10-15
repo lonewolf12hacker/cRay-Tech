@@ -1,0 +1,82 @@
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+
+/**
+ * cRay Tech Portfolio Website
+ * Author: Ibemesi Ndubuisi Raymond
+ * Tagline: "Where Innovation Meets Integrity."
+ * Theme: Futuristic Black & Gold
+ */
+
+export default function Portfolio() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-gold-400 font-sans">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center py-24 px-6">
+        <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-7xl font-extrabold mb-4 tracking-widest">
+          cRay Tech
+        </motion.h1>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }} className="text-xl md:text-2xl text-gold-300 italic">
+          Where Innovation Meets Integrity
+        </motion.p>
+        <p className="mt-6 text-sm text-gray-400 uppercase tracking-widest">Founder: Ibemesi Ndubuisi Raymond</p>
+        <Button className="mt-10 bg-gold-400 text-black font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-gold-500/20 hover:bg-gold-300 transition-transform transform hover:scale-105">
+          Get Started
+        </Button>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-24 px-8 bg-black/80 text-center border-y border-gold-400/30 backdrop-blur-md">
+        <h2 className="text-4xl md:text-5xl font-bold text-gold-400 mb-14 tracking-wide">Our Services</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {[
+            'Website Design',
+            'AI Automation',
+            'WhatsApp Bot Setup',
+            'Portfolio Site Creation',
+            'Bug Fixing',
+          ].map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              className="p-8 bg-gradient-to-b from-gray-900 to-black border border-gold-400/40 rounded-2xl shadow-lg hover:shadow-gold-400/30 hover:scale-105 transition-transform duration-300"
+            >
+              <h3 className="text-2xl font-semibold mb-4 text-gold-300 tracking-wide">{service}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Cutting-edge {service.toLowerCase()} designed for speed, reliability, and modern excellence.
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-24 text-center px-8 bg-gradient-to-b from-black via-gray-900 to-black">
+        <h2 className="text-4xl md:text-5xl font-bold text-gold-400 mb-10 tracking-wide">Get in Touch</h2>
+        <p className="text-gray-400 mb-6 text-lg">Let’s create something futuristic and impactful together.</p>
+        <div className="text-lg space-y-2">
+          <p>📞 08067210220</p>
+          <p>📧 ibemesin998@gmail.com</p>
+        </div>
+        <Button className="mt-10 bg-gold-400 text-black font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-gold-500/20 hover:bg-gold-300 transform hover:scale-105">
+          Contact Now
+        </Button>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center border-t border-gold-400/30 text-gray-500 text-sm tracking-wider">
+        © {new Date().getFullYear()} cRay Tech. All rights reserved.
+      </footer>
+    </div>
+  );
+}
+
+/**
+ * Deployment Instructions:
+ * 1. Create a new GitHub repository (name: craytech-portfolio)
+ * 2. Push this project to GitHub
+ * 3. Deploy directly on Vercel (auto-detects Next.js/React setup)
+ * 4. Add your logo and favicon to the /public directory for customization
+ */
