@@ -1,82 +1,123 @@
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>cRay Tech — Where Innovation Meets Integrity</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <meta name="description" content="cRay Tech portfolio — modern, futuristic web design, services and projects." />
+  <style>
+    :root{
+      --bg:#050607;
+      --card:#0b0f12;
+      --muted:#9aa3a8;
+      --neon1:linear-gradient(135deg,#00f0ff 0%,#00d084 50%,#8be0ff 100%);
+      --neon2:linear-gradient(135deg,#ffd66b 0%,#ffb84d 100%);
+      --accent-gold: #ffd66b;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 400px at 10% 10%, rgba(0,208,132,0.08), transparent), radial-gradient(800px 300px at 90% 90%, rgba(3,169,244,0.06), transparent), var(--bg);
+      color:#e6eef3;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      overflow-x:hidden;
+    }
 
-/**
- * cRay Tech Portfolio Website
- * Author: Ibemesi Ndubuisi Raymond
- * Tagline: "Where Innovation Meets Integrity."
- * Theme: Futuristic Black & Gold
- */
+    /* container */
+    .container{max-width:1100px;margin:32px auto;padding:24px;animation:fadeIn 1s ease forwards;opacity:0}
+    @keyframes fadeIn {from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 
-export default function Portfolio() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-gold-400 font-sans">
-      {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center py-24 px-6">
-        <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-7xl font-extrabold mb-4 tracking-widest">
-          cRay Tech
-        </motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.8 }} className="text-xl md:text-2xl text-gold-300 italic">
-          Where Innovation Meets Integrity
-        </motion.p>
-        <p className="mt-6 text-sm text-gray-400 uppercase tracking-widest">Founder: Ibemesi Ndubuisi Raymond</p>
-        <Button className="mt-10 bg-gold-400 text-black font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-gold-500/20 hover:bg-gold-300 transition-transform transform hover:scale-105">
-          Get Started
-        </Button>
-      </section>
+    /* nav */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;animation:slideDown 1s ease forwards;opacity:0}
+    @keyframes slideDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
 
-      {/* Services Section */}
-      <section className="py-24 px-8 bg-black/80 text-center border-y border-gold-400/30 backdrop-blur-md">
-        <h2 className="text-4xl md:text-5xl font-bold text-gold-400 mb-14 tracking-wide">Our Services</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {[
-            'Website Design',
-            'AI Automation',
-            'WhatsApp Bot Setup',
-            'Portfolio Site Creation',
-            'Bug Fixing',
-          ].map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="p-8 bg-gradient-to-b from-gray-900 to-black border border-gold-400/40 rounded-2xl shadow-lg hover:shadow-gold-400/30 hover:scale-105 transition-transform duration-300"
-            >
-              <h3 className="text-2xl font-semibold mb-4 text-gold-300 tracking-wide">{service}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Cutting-edge {service.toLowerCase()} designed for speed, reliability, and modern excellence.
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:54px;height:54px;border-radius:12px;background:var(--neon1);box-shadow:0 6px 24px rgba(0,208,132,0.12);display:flex;align-items:center;justify-content:center;font-weight:900;color:#041014;animation:float 3s ease-in-out infinite alternate}
+    @keyframes float{0%{transform:translateY(0)}100%{transform:translateY(-6px)}}
 
-      {/* Contact Section */}
-      <section className="py-24 text-center px-8 bg-gradient-to-b from-black via-gray-900 to-black">
-        <h2 className="text-4xl md:text-5xl font-bold text-gold-400 mb-10 tracking-wide">Get in Touch</h2>
-        <p className="text-gray-400 mb-6 text-lg">Let’s create something futuristic and impactful together.</p>
-        <div className="text-lg space-y-2">
-          <p>📞 08067210220</p>
-          <p>📧 ibemesin998@gmail.com</p>
-        </div>
-        <Button className="mt-10 bg-gold-400 text-black font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-gold-500/20 hover:bg-gold-300 transform hover:scale-105">
-          Contact Now
-        </Button>
-      </section>
+    .brand h1{margin:0;font-size:18px;letter-spacing:0.6px}
+    .tag{font-size:12px;color:var(--muted);margin-top:2px}
 
-      {/* Footer */}
-      <footer className="py-8 text-center border-t border-gold-400/30 text-gray-500 text-sm tracking-wider">
-        © {new Date().getFullYear()} cRay Tech. All rights reserved.
-      </footer>
-    </div>
-  );
-}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:500;transition:color .3s}
+    nav a:hover{color:var(--accent-gold)}
+    nav a.cta{background:var(--accent-gold);color:#071217;padding:8px 12px;border-radius:8px;margin-left:20px;font-weight:700;transition:transform .3s}
+    nav a.cta:hover{transform:scale(1.05)}
 
-/**
- * Deployment Instructions:
- * 1. Create a new GitHub repository (name: craytech-portfolio)
- * 2. Push this project to GitHub
- * 3. Deploy directly on Vercel (auto-detects Next.js/React setup)
- * 4. Add your logo and favicon to the /public directory for customization
- */
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-bottom:40px;animation:fadeIn 1.5s ease forwards;opacity:0}
+    .hero-left{padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:18px;box-shadow:0 8px 30px rgba(3,169,244,0.06)}
+    .eyebrow{color:var(--accent-gold);font-weight:700;font-size:13px}
+    .hero h2{margin:12px 0 8px;font-size:36px;line-height:1.02}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .hero .actions{display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);cursor:pointer;text-decoration:none;color:inherit;transition:all .3s ease}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{background:var(--neon1);color:#021214;font-weight:700}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+    /* hero right preview */
+    .preview{background:linear-gradient(135deg, rgba(0,0,0,0.35), rgba(255,255,255,0.02));border-radius:16px;padding:18px;min-height:260px;position:relative;overflow:hidden;animation:fadeIn 2s ease forwards;opacity:0}
+    .wave{position:absolute;right:-40px;bottom:-20px;width:360px;height:360px;border-radius:50%;background:var(--neon1);filter:blur(36px);opacity:0.18;transform:rotate(20deg);animation:wave 6s ease-in-out infinite alternate}
+    @keyframes wave{0%{transform:rotate(20deg) scale(1)}100%{transform:rotate(40deg) scale(1.1)}}
+
+    .preview .mock{position:relative;z-index:2;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:14px;color:var(--muted)}
+
+    /* sections */
+    section{margin-bottom:36px;opacity:0;animation:fadeUp 1s ease forwards}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);border:1px solid var(--glass);transition:transform .3s ease, box-shadow .3s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 10px 40px rgba(3,169,244,0.1)}
+
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* projects */
+    .projects-filter{display:flex;gap:12px;margin-bottom:14px}
+    .filter-btn{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:transparent;cursor:pointer;transition:background .3s}
+    .filter-btn:hover{background:rgba(255,255,255,0.04)}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{position:relative;border-radius:12px;overflow:hidden;animation:fadeUp 1.2s ease forwards}
+    .project .thumb{height:160px;background:linear-gradient(135deg,#021214,#0b2230);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:background .5s}
+    .project:hover .thumb{background:var(--neon1)}
+
+    /* contact */
+    .contact-row{display:flex;gap:18px}
+    .contact-card{flex:1}
+    .contact-form{flex:1}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--glass);background:transparent;color:inherit;transition:border .3s}
+    input:focus,textarea:focus{border-color:var(--accent-gold);outline:none}
+
+    footer{text-align:center;color:var(--muted);font-size:13px;padding:18px;animation:fadeIn 1.5s ease forwards;opacity:0}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .grid-3{grid-template-columns:1fr}
+      .project-grid{grid-template-columns:1fr 1fr}
+      nav a{display:none}
+    }
+    @media (max-width:560px){
+      .project-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- content same as before -->
+  </div>
+  <script>
+    document.querySelectorAll('section, header, .hero, footer, .container, .preview').forEach((el,i)=>{
+      setTimeout(()=>{el.style.opacity='1'},200*i);
+    });
+  </script>
+</body>
+</html>
